@@ -1,0 +1,126 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title PowerISHell - PowerShell for devs
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section(data-bespoke-hash='start')
+        h1 Power IS Hell - PowerShell for devs
+
+      section(data-bespoke-hash='about-me')
+        h2 Who am I?
+        h3.bullet
+        ul
+          li User of every useful technology
+          li DevOps and automation adept 
+          li Working in <img src="images/mbank-logo.png" width="107" height="40" alt="mBank"/> as IT Expert
+
+      section(data-bespoke-hash='whywhywhy')
+        h2 PowerShell <br/>why? why? why?
+        h3.bullet
+          li It exists and guys in MS love it
+          li It is better than cmd and git console - I will prove it
+          li It has a lot of build and created stuff which helps in crafting software
+
+      section(data-bespoke-hash='demo1')
+        h2 Demo 1
+        h2 Let me introduce myself
+        br
+        h3 Copy & paste :)
+        pre
+          code.language-javascript.
+            $voice = New-Object -ComObject SAPI.SPVoice
+            $voice.Rate = -1
+            $voice.Speak("Hi boys and girls!
+                  Let me introduce myself. 
+                  I am PowerShell.");
+      section(data-bespoke-hash='demo2-intro')
+        h2 Rebus
+        p <img src="images/posh.jpg" width="30%" alt="posh"/> <img src="images/minus.png" width="30%" alt="posh"/> <img width="30%" src="images/git.png" alt="git"/> 
+
+      section(data-bespoke-hash='demo2')
+        h2 Demo 2
+        h2 posh-git
+        br
+        h3 How to install
+        pre
+          code.language-javascript.
+            (new-object Net.WebClient).DownloadString(
+                  "http://psget.net/GetPsGet.ps1") | iex
+
+            Install-Module posh-git
+
+      section(data-bespoke-hash='posh-modules')
+        h2 Posh*
+        h3.bullet Thre are more posh* modules
+        ul
+          li posh-svn and posh-hg
+          li posh-npm - for NPM
+          li posh-gvm - for groovy
+          li posh-couch - for CouchDB
+          li and much more just run: Get-PsGetModuleInfo Posh* or browse <a href="http://psget.net/directory/">http://psget.net/directory/</a>
+
+
+      section(data-bespoke-hash='demo3-intro')
+        h2 Work with log files
+        h3.bullet Log files form production usually:
+        ul 
+          li are on Windows/Samba share
+          li are big and spitted into many files (rolling logs)
+          li are in compressed format (tgz, rar, zip)
+          li we want to <b>grep</b> them
+
+
+
+      section(data-bespoke-hash='demo3')
+        h2 Demo 3 - unpack and grep log files
+        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+
+        h2 TODO
+        pre
+          code.language-javascript.
+            TODO
+
+      section(data-bespoke-hash='choco')
+        h2 Installation
+        h3 Installation in bash is already on Windows. We can use PowerShell for this
+        ul 
+          li Fro example to install <b>Chocolatey</b> we can run
+            pre
+              code.language-javascript.
+                @powershell -NoProfile -ExecutionPolicy unrestricted 
+                -Command "iex ((new-object net.webclient).DownloadString('
+                https://chocolatey.org/install.ps1'))" 
+                && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+
+      section(data-bespoke-hash='sudo')
+        h2 SUDO
+        h3 I really miss sudo command from Linux. In PowerShell we can have it:
+        pre
+          code.language-javascript.
+            function sudo  {
+                $file, [string]$arguments = $args;
+                $psi = new-object System.Diagnostics.ProcessStartInfo $file;
+                $psi.Arguments = $arguments;
+                $psi.Verb = "runas";
+                $psi.WorkingDirectory = get-location;
+                [System.Diagnostics.Process]::Start($psi);
+            }
+      section(data-bespoke-hash='transcript')
+        h2 Record your actions
+        h3 In PowerShell we can record user actions (too see if he run proper commands :) )
+        pre
+          code.language-javascript.
+            Start-Transcript -Path .\trasnsript.txt
+            ls
+            sudo notepad C:\Windows\System32\drivers\etc\hosts
+            Stop-Transcript
+      
+    script(src='build/build.js')
