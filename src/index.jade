@@ -78,10 +78,15 @@ html
 
       section(data-bespoke-hash='demo3')
         h2 Demo 3 - unpack and grep log files
-        h2 TODO
+        h3 It is said but grep for log files in useful
         pre
           code.language-javascript.
-            TODO
+            set-alias 7zip "C:\Program Files\7-Zip\7z.exe"
+            pushd H:\projects\powerISHell-dema\Demo3\logs
+            get-childItem | foreach{7zip x $_}
+            gci -Filter "*.log" | select-string "Error"
+            set-alias grep select-string
+            gci -Filter "*.log" | grep -context 5 "Error"
 
       section(data-bespoke-hash='choco')
         h2 Installation
