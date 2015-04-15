@@ -83,7 +83,7 @@ html
           code.language-javascript.
             set-alias 7zip "C:\Program Files\7-Zip\7z.exe"
             pushd H:\projects\powerISHell-dema\Demo3\logs
-            get-childItem | foreach{7zip x $_}
+            get-childItem -Path .\gzip | foreach{7zip x $_.FullName}
             gci -Filter "*.log" | select-string "Error"
             set-alias grep select-string
             gci -Filter "*.log" | grep -context 5 "Error"
