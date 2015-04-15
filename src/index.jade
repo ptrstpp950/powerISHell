@@ -3,7 +3,7 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title PowerISHell - PowerShell for devs
+    title PowerIShell - PowerShell for devs
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
@@ -12,7 +12,8 @@ html
     article
 
       section(data-bespoke-hash='start')
-        h1 Power IS Hell - PowerShell for devs
+        h1 Power<span style="color:gray">I</span>S<span style="color:red">hell</span>
+        h1 for developers
 
       section(data-bespoke-hash='about-me')
         h2 Who am I?
@@ -20,6 +21,8 @@ html
           li User of every useful technology
           li DevOps and automation adept 
           li Working in <img src="images/mbank-logo.png" width="107" height="40" alt="mBank"/> as IT Expert
+          li My blog is <a href="piotrstapp.azurewebsites.net">piotrstapp.azurewebsites.net</a>
+          li My Twitter is <a href="https://twitter.com/ptrstpp950">@ptrstpp950</a>
 
       section(data-bespoke-hash='whywhywhy')
         h2 PowerShell <br/>why? why? why?
@@ -184,5 +187,9 @@ html
 
       section(data-bespoke-hash='end')
         h2 Final demo
+        pre
+          code.language-javascript.
+            iex (New-Object Net.WebClient).DownloadString(`
+              "http://www.leeholmes.com/projects/ps_html5/Invoke-PSHtml5.ps1");
       
     script(src='build/build.js')
