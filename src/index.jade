@@ -158,7 +158,29 @@ html
           li More on: <a href="http://jameschambers.com/2011/06/powershell-script-examples-for-nuget-packages/" target="_blank">James Chamber blog</a>
           li In mBank we have script with download framework core with all needed plugins. Then setup and run IIS Express, run standalone WCF, attach debugger to both
       section(data-bespoke-hash='remote-demo')
-        h2 TODO Remote demo
+        h2 Powershell Remote
+        h3 WinRM
+        pre
+          code.language-javascript.
+            Invoke-Command -ComputerName MyPC `
+              -ScriptBlock { Get-ChildItem C:\ } `
+              -credential xxx
+      section(data-bespoke-hash='remote-demo-2')
+        h2 Powershell Remote
+        h3 SSH
+        pre
+          code.language-javascript.
+                set-alias ssh "C:\Program Files (x86)\Git\bin\ssh.exe"
+                (Get-Host).UI.RawUI.BackgroundColor = "black"
+                ssh -p $port $ip;
+      section(data-bespoke-hash='remote-demo-web')
+        h2 Powershell Remote
+        h3 Powershell Web Access
+        p <img src="images/web-based_console.png" width="100%" alt="pwa"/>
+      section(data-bespoke-hash='remote-demo-kudu')          
+        h2 Powershell Remote
+        h3 KUDU
+        p <img src="images/azure-powershell.png" width="100%" alt="azure"/>
 
       section(data-bespoke-hash='end')
         h2 Final demo
