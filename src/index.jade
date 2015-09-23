@@ -21,7 +21,7 @@ html
           li User of every useful technology
           li DevOps and automation adept 
           li Working in <img src="images/mbank-logo.png" width="107" height="40" alt="mBank"/> as IT Expert
-          li My blog is <a href="piotrstapp.azurewebsites.net">piotrstapp.azurewebsites.net</a>
+          li My blog is <a href="http://stapp.space">stapp.space</a>
           li My Twitter is <a href="https://twitter.com/ptrstpp950">@ptrstpp950</a>
 
       section(data-bespoke-hash='whywhywhy')
@@ -85,7 +85,8 @@ html
         pre
           code.language-javascript.
             set-alias 7zip "C:\Program Files\7-Zip\7z.exe"
-            pushd H:\projects\powerISHell-dema\Demo3\logs
+            pushd H:\Source\powerISHell-dema\Demo3\logs
+            rm *.log
             get-childItem -Path .\gzip | foreach{7zip x $_.FullName}
             gci -Filter "*.log" | select-string "Error"
             set-alias grep select-string
@@ -115,6 +116,15 @@ html
                 $psi.WorkingDirectory = get-location;
                 [System.Diagnostics.Process]::Start($psi);
             }
+
+      section(data-bespoke-hash='sudo-example')
+        h2 SUDO example
+        pre
+          code.language-javascript.
+            pushd 'H:\Source\powerISHell-dema\Demo-VisualStudio'
+            sudo devenv.exe .\Demo-VisualStudio.sln
+            popd
+
       section(data-bespoke-hash='transcript')
         h2 Record your actions
         h3 In PowerShell we can record user actions (too see if he run proper commands :) )
@@ -146,7 +156,11 @@ html
 
       section(data-bespoke-hash='Package-Manager-Console')
         h2 Package Manager Console is in VS
-        h3 It is full PowerShell with separate profile :) Allows to do interact with VS:
+        h3 It is full PowerShell with separate profile :) Allows to do interact with VS:)
+
+      section(data-bespoke-hash='Package-Manager-Console-evil-demo')
+        h2 Package Manager Console Evil Demo
+        h3 Run Visual Studio, open one document and paste following into Package Manager Console
         pre
           code.language-javascript.
             $dte.ActiveDocument.Selection.Insert("DROP TABLE :)")
@@ -190,7 +204,8 @@ html
         pre
           code.language-javascript.
             iex (New-Object Net.WebClient).DownloadString(`
-              "http://www.leeholmes.com/projects/ps_html5/Invoke-PSHtml5.ps1");
+              "http://www.leeholmes.com/"+`
+              "projects/ps_html5/Invoke-PSHtml5.ps1");
       section(data-bespoke-hash='end')
         h2 The end
         ul
