@@ -20,6 +20,7 @@ html
         h3.bullet
           li User of every useful technology
           li DevOps and automation adept 
+          li DevWarszaty vice-CEO
           li Working in <img src="images/finai-logo.svg" style="vertical-align: sub;" width="107" height="40" alt="FinAi"/> as Software Architect (& DevOps ninja)
           li Former <img src="images/mbank-logo.png" width="107" height="40" alt="mBank"/> architecture team member
           li My blog is <a target="_blank" href="http://stapp.space">stapp.space</a>
@@ -41,9 +42,9 @@ html
           code.language-javascript.
             $voice = New-Object -ComObject SAPI.SPVoice
             $voice.Rate = -1
-            $voice.Speak("Hi boys and girls!
-                  Let me introduce myself. 
-                  I am PowerShell.");
+            $voice.Speak("Witajcie chłopcy i dziewczęta
+                  Pozwólcie że się przedstawię. 
+                  Jestem PowerShell");
       section(data-bespoke-hash='demo2-intro')
         h2 Rebus
         p <img src="images/posh.jpg" width="30%" alt="posh"/> <img src="images/minus.png" width="30%" alt="posh"/> <img width="30%" src="images/git.png" alt="git"/> 
@@ -86,12 +87,12 @@ html
         pre
           code.language-javascript.
             set-alias 7zip "C:\Program Files\7-Zip\7z.exe"
-            pushd C:\projects\powerISHell\src\logs
+            pushd "$powerISHellRoot\logs"
             rm *.log
             get-childItem -Path .\gzip | foreach{7zip x $_.FullName}
-            gci -Filter "*.log" | select-string "Error"
+            gci -Filter "*.log" | select-string "Kaczka"
             set-alias grep select-string
-            gci -Filter "*.log" | grep -context 5 "Error"
+            gci -Filter "*.log" | grep -context 5 "Kaczka"
 
       section(data-bespoke-hash='choco')
         h2 Installation
@@ -122,7 +123,7 @@ html
         h2 SUDO example
         pre
           code.language-javascript.
-            pushd 'H:\Source\powerISHell-dema\Demo-VisualStudio'
+            pushd "$powerISHellRoot\Demo-VisualStudio"
             sudo devenv.exe .\Demo-VisualStudio.sln
             popd
 
@@ -189,7 +190,7 @@ html
         h3 SSH
         pre
           code.language-javascript.
-                set-alias ssh "C:\Program Files (x86)\Git\bin\ssh.exe"
+                set-alias ssh "C:\Program Files\Git\usr\bin\ssh.exe"
                 (Get-Host).UI.RawUI.BackgroundColor = "black"
                 ssh -p $port $ip;
       section(data-bespoke-hash='remote-demo-web')
